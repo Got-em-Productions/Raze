@@ -16,7 +16,9 @@ public class Movement : MonoBehaviour
     // Variables for ability to move, speed, cooldown, direction, position
     private bool canMove = true, moving = false;
     private int speed = 5, cooldown = 0;
-    private DIRECTION dir = DIRECTION.DOWN;
+    
+    [System.NonSerialized]
+    public DIRECTION dir = DIRECTION.DOWN;
     private Vector3 pos;
 
     // Start is called before the first frame update

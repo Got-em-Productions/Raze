@@ -21,7 +21,7 @@ public class Fire : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) {
             GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
             Rigidbody2D bRB = bullet.GetComponent<Rigidbody2D>();
-            DIRECTION currentDir = gameObject.GetComponentInParent<Movement>().dir;
+            DIRECTION currentDir = gameObject.GetComponent<Movement>().dir;
             switch (currentDir) {
                 case DIRECTION.UP:
                     bRB.velocity = transform.up * 5;
@@ -36,7 +36,9 @@ public class Fire : MonoBehaviour
                     bRB.velocity = transform.up * -5;
                     break;
             }
+            Destroy(bullet, 4);
         }
     }
+
 
 }

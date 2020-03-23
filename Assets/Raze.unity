@@ -428,9 +428,10 @@ GameObject:
   - component: {fileID: 601529556}
   - component: {fileID: 601529558}
   - component: {fileID: 601529557}
+  - component: {fileID: 601529559}
   m_Layer: 2
   m_Name: DevilBoi
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -493,7 +494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601529553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1, y: 2, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -558,6 +559,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &601529559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601529553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf68e8eff17c464ea75b3121628e79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 2775572007483697478, guid: 096bbcfc727a948bbb2877771629fa22,
+    type: 3}
 --- !u!1 &977730699
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,13 +738,13 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.5658986
+    width: 0.604
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.5
+  orthographic size: 8.544973
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

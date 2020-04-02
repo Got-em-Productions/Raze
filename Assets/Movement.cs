@@ -7,17 +7,25 @@ public enum DIRECTION { UP, DOWN, LEFT, RIGHT }
 
 public class Movement : MonoBehaviour
 {
-    // Camera object
+    // Direction bois
     
-    
+    public Sprite W_Sp;
+    public Sprite S_Sp;
+    public Sprite A_Sp;
+    public Sprite D_Sp;
+    private SpriteRenderer sr;
+
     // Raycast hitbois
     private RaycastHit2D upRay, downRay, leftRay, rightRay;
     
     // Variables for ability to move, speed, cooldown, direction, position
     private bool canMove = true, moving = false;
     private int speed = 5, cooldown = 0;
+<<<<<<< HEAD
     
     [System.NonSerialized]
+=======
+>>>>>>> Camera_Testing
     public DIRECTION dir = DIRECTION.DOWN;
     private Vector3 pos;
 
@@ -25,6 +33,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         initializeRays();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -60,11 +69,12 @@ public class Movement : MonoBehaviour
         if (cooldown <= 0){
             //format: if character not facing direction, character faces direction. Else character moves in direction.
             if (Input.GetKey(KeyCode.W)){
-                if (upRay.collider == null){    
-                    if(dir != DIRECTION.UP){
-                        cooldown = 5;
-                        dir = DIRECTION.UP;
-                    } else {
+                if (dir != DIRECTION.UP){
+                    cooldown = 5;
+                    dir = DIRECTION.UP;
+                    sr.sprite = W_Sp;
+                } else {
+                    if (upRay.collider == null){
                         canMove = false;
                         moving = true;
                         pos += Vector3.up;
@@ -72,11 +82,12 @@ public class Movement : MonoBehaviour
                 }
             }
             else if (Input.GetKey(KeyCode.S)){
-                if (downRay.collider == null){
-                    if(dir != DIRECTION.DOWN){
-                        cooldown = 5;
-                        dir = DIRECTION.DOWN;
-                    } else {
+                if (dir != DIRECTION.DOWN){
+                    cooldown = 5;
+                    dir = DIRECTION.DOWN;
+                    sr.sprite = S_Sp;
+                } else {
+                    if (downRay.collider == null){
                         canMove = false;
                         moving = true;
                         pos += Vector3.down;
@@ -84,11 +95,12 @@ public class Movement : MonoBehaviour
                 }
             }
             else if (Input.GetKey(KeyCode.A)){
-                if (leftRay.collider == null){
-                    if(dir != DIRECTION.LEFT){
-                        cooldown = 5;
-                        dir = DIRECTION.LEFT;
-                    } else {
+                if (dir != DIRECTION.LEFT){
+                    cooldown = 5;
+                    dir = DIRECTION.LEFT;
+                    sr.sprite = A_Sp;
+                } else {
+                    if (leftRay.collider == null){
                         canMove = false;
                         moving = true;
                         pos += Vector3.left;
@@ -96,11 +108,12 @@ public class Movement : MonoBehaviour
                 }
             }
             else if (Input.GetKey(KeyCode.D)){
-                if (rightRay.collider == null){
-                    if(dir != DIRECTION.RIGHT){
-                        cooldown = 5;
-                        dir = DIRECTION.RIGHT;
-                    } else {
+                if (dir != DIRECTION.RIGHT){
+                    cooldown = 5;
+                    dir = DIRECTION.RIGHT;
+                    sr.sprite = D_Sp;
+                } else {
+                    if (rightRay.collider == null){
                         canMove = false;
                         moving = true;
                         pos += Vector3.right;
